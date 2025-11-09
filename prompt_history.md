@@ -372,3 +372,52 @@ ok看起來還行
 
 ---
 
+### Prompt #11
+**日期時間**: 2025-11-09
+**內容**:
+```
+資料及概覽葉面中標籤分布的圓餅圖上的標題文字無法正常顯示
+
+請幫我修正
+
+且我已將此GitHub部屬於streamlit上
+
+https://email-spam-classification-5114056048.streamlit.app/ 
+
+請幫我總結此系統再次幫我撰寫readme.md
+
+並在最上方附上我的demo網址讓老師可快速跳轉觀看網頁
+
+調整後再次幫我推送至git
+```
+
+**回應摘要**: 
+- 已修正圓餅圖標題顯示問題：
+  - 改善標籤顯示（Ham (正常郵件)、Spam (垃圾郵件)）
+  - 添加顏色配置（藍色和紅色）
+  - 改善標題字體大小和間距
+  - 添加 plt.tight_layout() 和 plt.close() 確保正確顯示
+- 已重新撰寫 README.md：
+  - 在最上方添加 demo 網址（https://email-spam-classification-5114056048.streamlit.app/）
+  - 重新總結系統功能（核心功能、進階功能）
+  - 添加系統架構圖
+  - 詳細說明可調整參數
+  - 改善使用說明
+  - 添加程式碼使用範例
+- 已成功推送到 GitHub
+
+**相關檔案**:
+- `app.py` - 修正圓餅圖顯示問題
+- `README.md` - 重新撰寫，添加 demo 網址和系統總結
+- GitHub 倉庫：https://github.com/zzaq88926/Email-spam-classification
+- Demo 網址：https://email-spam-classification-5114056048.streamlit.app/
+
+**修正內容**:
+- ✅ 圓餅圖標題正常顯示
+- ✅ README.md 最上方添加 demo 網址
+- ✅ 系統功能總結
+- ✅ 可調整參數詳細說明
+- ✅ 使用說明改善
+
+---
+
