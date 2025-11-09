@@ -115,9 +115,13 @@ def show_dataset_overview():
     st.subheader("標籤分布")
     fig, ax = plt.subplots(figsize=(8, 6))
     label_counts = df['label'].value_counts()
-    ax.pie(label_counts.values, labels=label_counts.index, autopct='%1.1f%%', startangle=90)
-    ax.set_title('標籤分布')
+    labels = ['Ham (正常郵件)' if idx == 'ham' else 'Spam (垃圾郵件)' for idx in label_counts.index]
+    colors = ['#66b3ff', '#ff9999']
+    ax.pie(label_counts.values, labels=labels, autopct='%1.1f%%', startangle=90, colors=colors)
+    ax.set_title('標籤分布', fontsize=14, pad=20)
+    plt.tight_layout()
     st.pyplot(fig)
+    plt.close(fig)
     
     # 樣本訊息
     st.subheader("樣本訊息")
