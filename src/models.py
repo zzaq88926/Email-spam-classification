@@ -20,36 +20,46 @@ from src.data_preprocessing import load_data, preprocess_data, create_vectorizer
 class SpamClassifier:
     """垃圾郵件分類器類別"""
     
-    def __init__(self, model_type: str = 'logistic_regression', vectorizer_type: str = 'tfidf'):
+    def __init__(self, model_type: str = 'logistic_regression', vectorizer_type: str = 'tfidf',
+                 vectorizer_params: dict = None, model_params: dict = None):
         """
         初始化分類器
         
         Args:
             model_type: 模型類型 ('logistic_regression', 'naive_bayes', 'svm')
             vectorizer_type: 向量化器類型 ('tfidf' 或 'count')
+            vectorizer_params: 向量化器參數
+            model_params: 模型參數
         """
         self.model_type = model_type
         self.vectorizer_type = vectorizer_type
-        self.vectorizer = create_vectorizer(vectorizer_type)
-        self.model = self._create_model(model_type)
+        self.vectorizer = create_vectorizer(vectorizer_type, **(vectorizer_params or {}))
+        self.model = self._create_model(model_type, model_params or {})
         self.is_trained = False
     
-    def _create_model(self, model_type: str):
+    def _create_model(self, model_type: str, model_params: dict):
         """
         建立模型
         
         Args:
             model_type: 模型類型
+            model_params: 模型參數
             
         Returns:
             模型實例
         """
         if model_type == 'logistic_regression':
-            return LogisticRegression(max_iter=1000, random_state=42)
+            default_params = {'max_iter': 1000, 'random_state': 42}
+            default_params.update(model_params)
+            return LogisticRegression(**default_params)
         elif model_type == 'naive_bayes':
-            return MultinomialNB()
+            default_params = {'alpha': 1.0}
+            default_params.update(model_params)
+            return MultinomialNB(**default_params)
         elif model_type == 'svm':
-            return SVC(kernel='linear', probability=True, random_state=42)
+            default_params = {'kernel': 'linear', 'probability': True, 'random_state': 42}
+            default_params.update(model_params)
+            return SVC(**default_params)
         else:
             raise ValueError(f"不支援的模型類型: {model_type}")
     
@@ -132,7 +142,8 @@ class SpamClassifier:
 
 
 def train_all_models(data_path: str = 'datasets/sms_spam_no_header.csv', 
-                     test_size: float = 0.2, random_state: int = 42) -> Dict[str, SpamClassifier]:
+                     test_size: float = 0.2, random_state: int = 42,
+                     vectorizer_params: dict = None, model_params_dict: dict = None) -> Dict[str, SpamClassifier]:
     """
     訓練所有模型
     
@@ -169,9 +180,23 @@ def train_all_models(data_path: str = 'datasets/sms_spam_no_header.csv',
     models = {}
     model_types = ['logistic_regression', 'naive_bayes', 'svm']
     
+    # 預設模型參數
+    default_model_params = {
+        'logistic_regression': {},
+        'naive_bayes': {},
+        'svm': {}
+    }
+    if model_params_dict:
+        default_model_params.update(model_params_dict)
+    
     for model_type in model_types:
         print(f"\n訓練 {model_type} 模型...")
-        classifier = SpamClassifier(model_type=model_type, vectorizer_type='tfidf')
+        classifier = SpamClassifier(
+            model_type=model_type, 
+            vectorizer_type='tfidf',
+            vectorizer_params=vectorizer_params,
+            model_params=default_model_params.get(model_type, {})
+        )
         classifier.vectorizer = vectorizer  # 使用相同的向量化器
         classifier.train(X_train, y_train)
         classifier.save()

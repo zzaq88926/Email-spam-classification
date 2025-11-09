@@ -261,3 +261,87 @@ https://github.com/Fission-AI/OpenSpec.git
 
 ---
 
+### Prompt #8
+**日期時間**: 2025-11-09
+**內容**:
+```
+好請幫我把專案推送至github
+
+https://github.com/zzaq88926/Email-spam-classification 
+```
+
+**回應摘要**: 
+- 已初始化 Git 倉庫：`git init`
+- 已添加遠程倉庫：`git remote add origin https://github.com/zzaq88926/Email-spam-classification.git`
+- 已配置 Git 用戶資訊（用戶名：zzaq88926）
+- 已添加所有文件到 Git：`git add .`
+- 已提交初始版本：`git commit -m "Initial commit: 垃圾郵件分類系統 - 使用 OpenSpec 工作流程建立"`
+- 已解決 README.md 的合併衝突（保留本地完整版本）
+- 已成功推送到 GitHub：`git push -u origin main`
+- 專案已成功上傳到 GitHub 倉庫
+
+**相關檔案**:
+- GitHub 倉庫：https://github.com/zzaq88926/Email-spam-classification
+- 所有專案文件已推送到遠程倉庫
+
+**推送的內容**:
+- ✅ 16 個文件已推送
+- ✅ 包含所有原始碼（src/）
+- ✅ 包含 Streamlit 應用程式（app.py）
+- ✅ 包含 OpenSpec 工作流程文件（openspec/）
+- ✅ 包含專案文件（README.md, requirements.txt, .gitignore）
+- ✅ 包含資料集（datasets/sms_spam_no_header.csv）
+- ✅ 包含教學文件（OpenSpec teaching.md）
+- ✅ 包含 Prompt 記錄本（prompt_history.md）
+
+**注意事項**:
+- 推送過程中解決了 README.md 的合併衝突
+- 所有文件已成功上傳到 GitHub
+
+---
+
+### Prompt #9
+**日期時間**: 2025-11-09
+**內容**:
+```
+我看了老師的範例
+
+其有更多選項可以調整
+
+請參考其成品再進行改善
+
+使其可調整更多參數
+
+https://2025spamemail.streamlit.app/ 
+```
+
+**回應摘要**: 
+- 已改善應用程式，添加更多可調整參數
+- 模型訓練頁面新增參數調整區域：
+  - 資料分割參數（測試集比例、隨機種子）
+  - 向量化器參數（類型、最大特徵數、min_df、max_df、N-gram 範圍）
+  - 模型超參數（邏輯迴歸、樸素貝葉斯、支援向量機）
+- 即時預測頁面新增功能：
+  - 預測選項（顯示預處理文本、機率條形圖、Spam 判定閾值）
+  - 範例訊息按鈕（Ham、Spam、清空）
+  - 機率分布視覺化
+  - 根據閾值判斷結果
+- 更新模型訓練模組，支援自定義參數
+- 改善用戶體驗，添加更多互動功能
+
+**相關檔案**:
+- `app.py` - Streamlit 應用程式（已改善）
+- `src/models.py` - 模型訓練模組（已更新）
+
+**新增功能**:
+- ✅ 資料分割參數調整（測試集比例、隨機種子）
+- ✅ 向量化器參數調整（類型、特徵數、N-gram 範圍）
+- ✅ 邏輯迴歸超參數（C、penalty、solver、max_iter）
+- ✅ 樸素貝葉斯超參數（alpha）
+- ✅ 支援向量機超參數（C、kernel、gamma）
+- ✅ 預測選項（閾值、視覺化選項）
+- ✅ 範例訊息功能
+- ✅ 機率分布視覺化
+
+---
+
