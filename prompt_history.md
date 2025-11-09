@@ -345,3 +345,30 @@ https://2025spamemail.streamlit.app/
 
 ---
 
+### Prompt #10
+**日期時間**: 2025-11-09
+**內容**:
+```
+ok看起來還行
+
+在幫我通送至github
+```
+
+**回應摘要**: 
+- 已將改善後的代碼推送到 GitHub
+- 提交訊息：「改善應用程式：添加更多可調整參數（向量化器參數、模型超參數、預測選項）」
+- 更新了 3 個文件（app.py, src/models.py, prompt_history.md）
+- 新增 267 行，刪除 21 行
+- 已成功推送到遠程倉庫
+
+**相關檔案**:
+- GitHub 倉庫：https://github.com/zzaq88926/Email-spam-classification
+- 已更新的文件：app.py, src/models.py, prompt_history.md
+
+**推送內容**:
+- ✅ 改善的 Streamlit 應用程式（更多參數調整選項）
+- ✅ 更新的模型訓練模組（支援自定義參數）
+- ✅ 更新的 Prompt 記錄本
+
+---
+
